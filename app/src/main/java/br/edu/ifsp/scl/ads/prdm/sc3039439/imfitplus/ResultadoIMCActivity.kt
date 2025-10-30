@@ -16,5 +16,27 @@ class ResultadoIMCActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(arib.root)
+
+        val nome = intent.getStringExtra("nome")
+        val imc = intent.getDoubleExtra("imc", 0.0)
+
+        arib.nomeResultadoTv.text = nome
+        arib.imcResultadoTv.text = String.format("IMC: %.2f", imc)
+
+        val categoria = when {
+            imc < 18.5 -> "Abaixo do peso"
+            imc < 25 -> "Normal"
+            imc < 30 -> "Sobrepeso"
+            else -> "Obesidade"
+        }
+        arib.categoriaTv.text = categoria
+
+        arib.calcularGastoBt.setOnClickListener {
+            val intent = Intent(this, GastoCaloricoActivity::class.java)
+            intent.putExtras(getIntent())
+            startActivity(intent)
+        }
+
+        arib.voltarBt.setOnClickListener { finish() }
     }
 }
