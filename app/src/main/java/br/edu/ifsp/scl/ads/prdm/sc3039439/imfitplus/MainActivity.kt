@@ -12,9 +12,15 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
+        setSupportActionBar(amb.toolbarIn.toolbar)
+
+
+        amb.comeceAquiBt.setOnClickListener {
+            val intent = Intent(this, DadosPessoaisActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
