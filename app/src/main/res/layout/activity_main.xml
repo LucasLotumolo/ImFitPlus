@@ -5,8 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
     tools:context=".MainActivity">
+
+    <include android:id="@+id/toolbar_in"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/boas_vindas_tv"
@@ -19,7 +25,8 @@
         android:paddingBottom="32dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_in"/>
 
     <Button
         android:id="@+id/comece_aqui_bt"
@@ -29,6 +36,7 @@
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/boas_vindas_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/blue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

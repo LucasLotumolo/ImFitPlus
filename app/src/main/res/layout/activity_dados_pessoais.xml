@@ -8,8 +8,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:layout_height="wrap_content">
+
+        <include android:id="@+id/toolbar_in"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/titulo_tv"
@@ -17,11 +23,12 @@
             android:layout_height="wrap_content"
             android:text="Dados Pessoais"
             android:textSize="28sp"
+            android:layout_marginTop="20sp"
             android:textAlignment="center"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_in"/>
 
         <EditText
             android:id="@+id/nome_et"
@@ -107,7 +114,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="30dp"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="@color/blue"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
