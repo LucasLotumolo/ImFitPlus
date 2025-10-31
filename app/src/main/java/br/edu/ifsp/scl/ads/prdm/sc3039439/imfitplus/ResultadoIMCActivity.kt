@@ -20,7 +20,7 @@ class ResultadoIMCActivity : AppCompatActivity() {
         val nome = intent.getStringExtra("nome")
         val imc = intent.getDoubleExtra("imc", 0.0)
 
-        arib.nomeResultadoTv.text = nome
+        arib.nomeResultadoTv.text = String.format("Nome: %s", nome)
         arib.imcResultadoTv.text = String.format("IMC: %.2f", imc)
 
         val categoria = when {
@@ -29,7 +29,7 @@ class ResultadoIMCActivity : AppCompatActivity() {
             imc < 30 -> "Sobrepeso"
             else -> "Obesidade"
         }
-        arib.categoriaTv.text = categoria
+        arib.categoriaTv.text = String.format("Categoria: %s", categoria)
 
         arib.calcularGastoBt.setOnClickListener {
             val intent = Intent(this, GastoCaloricoActivity::class.java)
