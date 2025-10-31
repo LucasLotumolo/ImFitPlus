@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.databinding.ActivityPesoIdealBinding
@@ -14,6 +15,8 @@ class PesoIdealActivity : AppCompatActivity() {
         setContentView(apib.root)
 
         val dados = intent.getParcelableExtra<DadosPessoais>("dados")
+        val imc = intent.getDoubleExtra("imc", 0.0)
+        val gasto = intent.getDoubleExtra("gasto", 0.0)
 
         if (dados != null) {
             val pesoIdeal = 22 * (dados.altura * dados.altura)
@@ -29,8 +32,16 @@ class PesoIdealActivity : AppCompatActivity() {
             }
 
             apib.recomendacaoTv.text = recomendacao
-        }
 
+            apib.calcularRecomendacaoAguaBt.setOnClickListener {
+                val intent = Intent(this, ResumoSaudeActivity::class.java)
+                intent.putExtra("dados", dados)
+                intent.putExtra("pesoIdeal", pesoIdeal)
+                intent.putExtra("imc", imc)
+                intent.putExtra("gasto",gasto)
+                startActivity(intent)
+            }
+        }
         apib.voltarBt.setOnClickListener { finish() }
     }
 }

@@ -49,13 +49,24 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
+        android:id="@+id/calcular_recomendacao_agua_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calcular Recomendação de Água"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintTop_toBottomOf="@id/recomendacao_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
         android:id="@+id/voltar_bt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Voltar"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/blue"
-        app:layout_constraintTop_toBottomOf="@id/recomendacao_tv"
+        app:layout_constraintTop_toBottomOf="@id/calcular_recomendacao_agua_bt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

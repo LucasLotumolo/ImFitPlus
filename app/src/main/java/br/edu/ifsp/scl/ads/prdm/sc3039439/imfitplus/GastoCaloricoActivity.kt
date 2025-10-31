@@ -15,6 +15,7 @@ class GastoCaloricoActivity : AppCompatActivity() {
         setContentView(agcb.root)
 
         val dados = intent.getParcelableExtra<DadosPessoais>("dados")
+        val imc = intent.getDoubleExtra("imc", 0.0)
 
         if (dados != null) {
             val tmb = if (dados.sexo == "Masculino") {
@@ -35,12 +36,14 @@ class GastoCaloricoActivity : AppCompatActivity() {
 
             agcb.resultadoTmbTv.text = String.format("TMB: %.2f", tmb)
             agcb.gastoDiarioTv.text = String.format("Gasto Diário: %.2f kcal", gasto)
-        }
 
-        agcb.pesoIdealBt.setOnClickListener {
-            val intent = Intent(this, PesoIdealActivity::class.java)
-            intent.putExtra("dados", dados)
-            startActivity(intent)
+            agcb.pesoIdealBt.setOnClickListener {
+                val intent = Intent(this, PesoIdealActivity::class.java)
+                intent.putExtra("dados", dados)
+                intent.putExtra("gasto", gasto)
+                intent.putExtra("imc", imc)
+                startActivity(intent)
+            }
         }
 
         agcb.voltarBt.setOnClickListener { finish() }

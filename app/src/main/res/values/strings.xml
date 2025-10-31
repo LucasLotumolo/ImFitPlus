@@ -6,4 +6,5 @@
         <item>Moderado</item>
         <item>Intenso</item>
     </string-array>
+    <string name="resumo_saude">Resumo da Saúde</string>
 </resources>
