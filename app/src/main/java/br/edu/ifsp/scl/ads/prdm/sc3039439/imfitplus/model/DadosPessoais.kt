@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus
+package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

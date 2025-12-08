@@ -1,9 +1,10 @@
-package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus
+package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.model.DadosPessoais
 import br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.databinding.ActivityDadosPessoaisBinding
 
 class DadosPessoaisActivity : AppCompatActivity() {

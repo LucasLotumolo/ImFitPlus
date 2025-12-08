@@ -1,10 +1,8 @@
-package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus
+package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.model.DadosPessoais
 import br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.databinding.ActivityResumoSaudeBinding
 
 class ResumoSaudeActivity : AppCompatActivity() {
