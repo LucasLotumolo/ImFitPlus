@@ -36,7 +36,7 @@ class ResumoSaudeActivity : AppCompatActivity() {
             arsb.pesoIdealResumoTv.text = String.format("Peso Ideal: %.2f kg", pesoIdeal)
             arsb.gastoCaloricoResumoTv.text = String.format("Gasto Diário: %.2f kcal", gasto)
 
-            val recomendacaoAgua = dados.peso * 350
+            val recomendacaoAgua = dados.peso * 35
 
             arsb.recomendacaoAguaResumoTv.text = String.format("Recomendação de Água: %.1f litros", recomendacaoAgua/1000)
         }
