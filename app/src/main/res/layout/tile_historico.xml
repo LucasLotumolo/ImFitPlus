@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nome_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/sexo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo:"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/idade_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Idade:"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/altura_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Altura:"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/peso_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso:"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/nivel_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nivel Atividade:"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/imc_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IMC:"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/categoria_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/peso_ideal_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso Ideal:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tmb_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gasto/TMB:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/recomendacao_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recomendação de Água:"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

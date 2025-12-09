@@ -82,13 +82,24 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
+        android:id="@+id/historico_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir para Histórico"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintTop_toBottomOf="@id/recomendacao_agua_resumo_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
         android:id="@+id/voltar_bt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Voltar"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/blue"
-        app:layout_constraintTop_toBottomOf="@id/recomendacao_agua_resumo_tv"
+        app:layout_constraintTop_toBottomOf="@id/historico_bt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

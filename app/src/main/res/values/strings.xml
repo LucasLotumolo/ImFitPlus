@@ -7,4 +7,5 @@
         <item>Intenso</item>
     </string-array>
     <string name="resumo_saude">Resumo da Saúde</string>
+    <string name="historico_saude">Histórico de Saúde</string>
 </resources>
