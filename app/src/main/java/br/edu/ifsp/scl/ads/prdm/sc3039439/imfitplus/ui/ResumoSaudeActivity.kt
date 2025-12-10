@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.model.DadosPessoais
@@ -37,6 +38,16 @@ class ResumoSaudeActivity : AppCompatActivity() {
             val recomendacaoAgua = dados.peso * 35
 
             arsb.recomendacaoAguaResumoTv.text = String.format("Recomendação de Água: %.1f litros", recomendacaoAgua/1000)
+
+            arsb.historicoBt.setOnClickListener {
+                val intent = Intent(this, HistoricoActivity::class.java)
+                intent.putExtra("dados", dados)
+                intent.putExtra("pesoIdeal", pesoIdeal)
+                intent.putExtra("imc", imc)
+                intent.putExtra("gasto",gasto)
+                intent.putExtra("recomendacao", recomendacaoAgua)
+                startActivity(intent)
+            }
         }
 
         arsb.voltarBt.setOnClickListener { finish() }

@@ -72,6 +72,14 @@ class DadosPessoaisActivity : AppCompatActivity() {
             return null
         }
 
-        return DadosPessoais(nome, idade, altura, peso, sexo, nivel)
+        return DadosPessoais(
+            id = 0L,
+            nome = nome,
+            idade = idade,
+            altura = altura,
+            peso = peso,
+            sexo = sexo,
+            nivel = nivel
+        )
     }
 }
