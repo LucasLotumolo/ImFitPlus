@@ -5,11 +5,17 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class DadosPessoais(
-    val id: Int? = -1,
-    val nome: String,
-    val idade: Int,
-    val altura: Double,
-    val peso: Double,
-    val sexo: String,
-    val nivel: String
+    val id: Int? = null,
+    val nome: String = "",
+    val idade: Int? = null,
+    val sexo: String = "",
+    val altura: Double? = null,
+    val peso: Double? = null,
+    val nivel: String = "",
+    var imc: Double? = null,
+    var tmb: Double? = null,
+    var gastoCalorico: Double? = null,
+    var pesoIdeal: Double? = null,
+    var categoriaImc: String? = null,
+    var recomendacaoAgua: Double? = null
 ) : Parcelable

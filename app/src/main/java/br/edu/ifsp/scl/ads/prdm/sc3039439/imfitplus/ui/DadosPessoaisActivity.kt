@@ -19,13 +19,15 @@ class DadosPessoaisActivity : AppCompatActivity() {
         adpb.calcularImcBt.setOnClickListener {
             val dados = validarDadosPessoais() ?: return@setOnClickListener
 
-            val imc = dados.peso / (dados.altura * dados.altura)
+            val peso = dados.peso!!
+            val altura = dados.altura!!
+
+            val imc = peso / (altura * altura)
 
             val intent = Intent(this, ResultadoIMCActivity::class.java).apply {
                 putExtra("dados", dados)
                 putExtra("imc", imc)
             }
-
             startActivity(intent)
         }
     }
@@ -73,7 +75,7 @@ class DadosPessoaisActivity : AppCompatActivity() {
         }
 
         return DadosPessoais(
-            id = 0L,
+            id = null,
             nome = nome,
             idade = idade,
             altura = altura,

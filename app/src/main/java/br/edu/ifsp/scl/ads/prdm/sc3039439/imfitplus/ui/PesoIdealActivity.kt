@@ -19,16 +19,21 @@ class PesoIdealActivity : AppCompatActivity() {
         val imc = intent.getDoubleExtra("imc", 0.0)
         val gasto = intent.getDoubleExtra("gasto", 0.0)
 
-        if (dados != null) {
-            val pesoIdeal = 22 * (dados.altura * dados.altura)
-            val diferenca = dados.peso - pesoIdeal
+        dados?.let { dp ->
+
+            val altura = dp.altura ?: 0.0
+            val pesoIdeal = 22 * (altura * altura)
+            val peso = dp.peso ?: 0.0
+            val diferenca = peso - pesoIdeal
 
             apib.pesoIdealTv.text = String.format("Peso Ideal: %.2f kg", pesoIdeal)
             apib.diferencaPesoTv.text = String.format("Diferença: %.2f kg", diferenca)
 
             val recomendacao = when {
-                diferenca > 3 -> "Tente reduzir seu peso com exercícios e alimentação equilibrada."
-                diferenca < -3 -> "Você pode ganhar um pouco de massa com treinos e boa alimentação."
+                diferenca > 3 ->
+                    "Tente reduzir seu peso com exercícios e alimentação equilibrada."
+                diferenca < -3 ->
+                    "Você pode ganhar um pouco de massa com treinos e boa alimentação."
                 else -> "Parabéns! Seu peso está dentro do ideal."
             }
 
@@ -36,13 +41,14 @@ class PesoIdealActivity : AppCompatActivity() {
 
             apib.calcularRecomendacaoAguaBt.setOnClickListener {
                 val intent = Intent(this, ResumoSaudeActivity::class.java)
-                intent.putExtra("dados", dados)
+                intent.putExtra("dados", dp)
                 intent.putExtra("pesoIdeal", pesoIdeal)
                 intent.putExtra("imc", imc)
-                intent.putExtra("gasto",gasto)
+                intent.putExtra("gasto", gasto)
                 startActivity(intent)
             }
         }
+
         apib.voltarBt.setOnClickListener { finish() }
     }
 }
