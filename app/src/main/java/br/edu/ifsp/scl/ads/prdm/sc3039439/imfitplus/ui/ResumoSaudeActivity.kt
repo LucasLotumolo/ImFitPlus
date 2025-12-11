@@ -35,19 +35,28 @@ class ResumoSaudeActivity : AppCompatActivity() {
             arsb.pesoIdealResumoTv.text = String.format("Peso Ideal: %.2f kg", pesoIdeal)
             arsb.gastoCaloricoResumoTv.text = String.format("Gasto Diário: %.2f kcal", gasto)
 
-            val recomendacaoAgua = dados.peso * 35
+            val peso = dados.peso ?: 0.0
+            val recomendacaoAgua = peso * 35
 
             arsb.recomendacaoAguaResumoTv.text = String.format("Recomendação de Água: %.1f litros", recomendacaoAgua/1000)
 
             arsb.historicoBt.setOnClickListener {
+                if (dados == null) return@setOnClickListener
+
+                dados.imc = imc
+                dados.pesoIdeal = pesoIdeal
+                dados.gastoCalorico = gasto
+                val recomendacaoEmMl = intent.getDoubleExtra("recomendacao", 0.0)
+                dados.recomendacaoAgua = recomendacaoEmMl / 1000.0  // salva em litros
+
+                val controller = br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.controller.UsuarioController(this)
+                val insertedId = controller.inserirUsuario(dados)
+
+                android.util.Log.d("ResumoSaudeActivity", "Usuário inserido com id: $insertedId")
                 val intent = Intent(this, HistoricoActivity::class.java)
-                intent.putExtra("dados", dados)
-                intent.putExtra("pesoIdeal", pesoIdeal)
-                intent.putExtra("imc", imc)
-                intent.putExtra("gasto",gasto)
-                intent.putExtra("recomendacao", recomendacaoAgua)
                 startActivity(intent)
             }
+
         }
 
         arsb.voltarBt.setOnClickListener { finish() }
