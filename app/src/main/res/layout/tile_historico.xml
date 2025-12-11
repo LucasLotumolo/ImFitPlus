@@ -1,100 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:elevation="4dp"
-    android:padding="12dp">
+    android:layout_margin="12dp"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="18dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#7993AD">
 
         <TextView
             android:id="@+id/nome_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome:"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/sexo_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sexo:"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="#DDDDDD"/>
 
-        <TextView
-            android:id="@+id/idade_tv"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Idade:"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-        <TextView
-            android:id="@+id/altura_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Altura:"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/peso_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Peso:"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+                <TextView android:id="@+id/sexo_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Sexo:" />
 
-        <TextView
-            android:id="@+id/nivel_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nivel Atividade:"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+                <TextView android:id="@+id/idade_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Idade:" />
+
+                <TextView android:id="@+id/altura_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Altura:" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView android:id="@+id/peso_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Peso:" />
+
+                <TextView android:id="@+id/nivel_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Nível:" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="#DDDDDD"/>
 
         <TextView
             android:id="@+id/imc_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="IMC:"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/categoria_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Categoria:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/peso_ideal_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Peso Ideal:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tmb_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gasto/TMB:"
+            android:textColor="@color/white"
+            android:text="TMB/Gasto:"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/recomendacao_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Recomendação de Água:"
             android:textSize="16sp" />
 
-
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
