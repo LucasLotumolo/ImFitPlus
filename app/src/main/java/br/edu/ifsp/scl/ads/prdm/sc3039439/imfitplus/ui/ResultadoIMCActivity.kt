@@ -29,15 +29,18 @@ class ResultadoIMCActivity : AppCompatActivity() {
                 else -> "Obesidade"
             }
             arib.categoriaTv.text = "Categoria: $categoria"
+
+            arib.calcularGastoBt.setOnClickListener {
+                val intent = Intent(this, GastoCaloricoActivity::class.java).apply {
+                    putExtra("dados", dados)
+                    putExtra("imc", imc)
+                    putExtra("categoriaImc", categoria)
+                }
+                startActivity(intent)
+            }
         }
 
-        arib.calcularGastoBt.setOnClickListener {
-            val intent = Intent(this, GastoCaloricoActivity::class.java).apply {
-                putExtra("dados", dados)
-                putExtra("imc", imc)
-            }
-            startActivity(intent)
-        }
+
 
         arib.voltarBt.setOnClickListener {
             finish()

@@ -16,7 +16,7 @@ class UsuarioAdapter(
     private val usuarioList: MutableList<DadosPessoais>
 ) : ArrayAdapter<DadosPessoais>(
     context,
-    R.layout.tile_historico,   // ALTERADO AQUI
+    R.layout.tile_historico,
     usuarioList
 ) {
 

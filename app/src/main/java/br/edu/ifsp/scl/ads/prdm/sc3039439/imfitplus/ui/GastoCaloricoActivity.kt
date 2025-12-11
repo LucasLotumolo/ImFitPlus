@@ -17,6 +17,7 @@ class GastoCaloricoActivity : AppCompatActivity() {
 
         val dados = intent.getParcelableExtra<DadosPessoais>("dados")
         val imc = intent.getDoubleExtra("imc", 0.0)
+        val categoria = intent.getStringExtra("categoriaImc")
 
         if (dados == null) {
             finish()
@@ -50,7 +51,9 @@ class GastoCaloricoActivity : AppCompatActivity() {
             val intent = Intent(this, PesoIdealActivity::class.java)
             intent.putExtra("dados", dados)
             intent.putExtra("gasto", gasto)
+            intent.putExtra("tmb", tmb)
             intent.putExtra("imc", imc)
+            intent.putExtra("categoriaImc", categoria)
             startActivity(intent)
         }
 

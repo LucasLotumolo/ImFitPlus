@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ class ResumoSaudeActivity : AppCompatActivity() {
         ActivityResumoSaudeBinding.inflate(layoutInflater)
     }
 
+    @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(arsb.root)
@@ -19,26 +21,21 @@ class ResumoSaudeActivity : AppCompatActivity() {
         val imc = intent.getDoubleExtra("imc", 0.0)
         val pesoIdeal = intent.getDoubleExtra("pesoIdeal", 0.0)
         val gasto = intent.getDoubleExtra("gasto", 0.0)
+        val tmb = intent.getDoubleExtra("tmb", 0.0)
+        val categoria = intent.getStringExtra("categoriaImc")
 
         if (dados != null) {
             arsb.nomeResumoTv.text = "Nome: ${dados.nome}"
             arsb.imcResumoTv.text = String.format("IMC: %.2f", imc)
-
-            val categoria = when {
-                imc < 18.5 -> "Abaixo do peso"
-                imc < 25 -> "Normal"
-                imc < 30 -> "Sobrepeso"
-                else -> "Obesidade"
-            }
 
             arsb.categoriaResumoTv.text = "Categoria: $categoria"
             arsb.pesoIdealResumoTv.text = String.format("Peso Ideal: %.2f kg", pesoIdeal)
             arsb.gastoCaloricoResumoTv.text = String.format("Gasto Diário: %.2f kcal", gasto)
 
             val peso = dados.peso ?: 0.0
-            val recomendacaoAgua = peso * 35
+            val recomendacaoAgua = peso * 35 / 1000
 
-            arsb.recomendacaoAguaResumoTv.text = String.format("Recomendação de Água: %.1f litros", recomendacaoAgua/1000)
+            arsb.recomendacaoAguaResumoTv.text = String.format("Recomendação de Água: %.1f litros", recomendacaoAgua)
 
             arsb.historicoBt.setOnClickListener {
                 if (dados == null) return@setOnClickListener
@@ -46,8 +43,9 @@ class ResumoSaudeActivity : AppCompatActivity() {
                 dados.imc = imc
                 dados.pesoIdeal = pesoIdeal
                 dados.gastoCalorico = gasto
-                val recomendacaoEmMl = intent.getDoubleExtra("recomendacao", 0.0)
-                dados.recomendacaoAgua = recomendacaoEmMl / 1000.0  // salva em litros
+                dados.recomendacaoAgua = recomendacaoAgua
+                dados.categoriaImc = categoria
+                dados.tmb = tmb
 
                 val controller = br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.controller.UsuarioController(this)
                 val insertedId = controller.inserirUsuario(dados)

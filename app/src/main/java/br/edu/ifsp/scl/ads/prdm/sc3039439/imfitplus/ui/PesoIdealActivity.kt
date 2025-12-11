@@ -18,6 +18,8 @@ class PesoIdealActivity : AppCompatActivity() {
         val dados = intent.getParcelableExtra<DadosPessoais>("dados")
         val imc = intent.getDoubleExtra("imc", 0.0)
         val gasto = intent.getDoubleExtra("gasto", 0.0)
+        val tmb = intent.getDoubleExtra("tmb", 0.0)
+        val categoria = intent.getStringExtra("categoriaImc")
 
         dados?.let { dp ->
 
@@ -45,6 +47,8 @@ class PesoIdealActivity : AppCompatActivity() {
                 intent.putExtra("pesoIdeal", pesoIdeal)
                 intent.putExtra("imc", imc)
                 intent.putExtra("gasto", gasto)
+                intent.putExtra("tmb", tmb)
+                intent.putExtra("categoriaImc", categoria)
                 startActivity(intent)
             }
         }
