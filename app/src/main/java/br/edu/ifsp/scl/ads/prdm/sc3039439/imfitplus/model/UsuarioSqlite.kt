@@ -6,6 +6,7 @@ import android.content.Context.MODE_PRIVATE
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
+import java.time.LocalDate
 
 class UsuarioSqlite(context: Context) : UsuarioDao {
 
@@ -14,7 +15,9 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
         private const val TABLE = "usuario"
         private const val ID = "id"
         private const val NOME = "nome"
+
         private const val IDADE = "idade"
+        private const val DATA_NASCIMENTO = "data_nascimento"
         private const val SEXO = "sexo"
         private const val ALTURA = "altura"
         private const val PESO = "peso"
@@ -30,7 +33,8 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
             CREATE TABLE IF NOT EXISTS $TABLE (
                 $ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 $NOME TEXT NOT NULL,
-                $IDADE INTEGER,
+                $IDADE REAL,
+                $DATA_NASCIMENTO TEXT,
                 $SEXO TEXT NOT NULL,
                 $ALTURA REAL,
                 $PESO REAL,
@@ -82,6 +86,7 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
     private fun DadosPessoais.toContentValues() = ContentValues().apply {
         put(NOME, nome)
         put(IDADE, idade)
+        put(DATA_NASCIMENTO, dataNascimento)
         put(SEXO, sexo)
         put(ALTURA, altura)
         put(PESO, peso)
@@ -97,7 +102,8 @@ class UsuarioSqlite(context: Context) : UsuarioDao {
     private fun Cursor.toUsuario() = DadosPessoais(
         id = getInt(getColumnIndexOrThrow(ID)),
         nome = getString(getColumnIndexOrThrow(NOME)),
-        idade = getIntOrNull(IDADE),
+        idade = getInt(getColumnIndexOrThrow(IDADE)),
+        dataNascimento = getString(getColumnIndexOrThrow(DATA_NASCIMENTO)),
         sexo = getString(getColumnIndexOrThrow(SEXO)),
         altura = getDoubleOrNull(ALTURA),
         peso = getDoubleOrNull(PESO),

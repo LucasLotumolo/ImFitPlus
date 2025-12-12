@@ -41,11 +41,11 @@
             android:layout_marginTop="12dp" />
 
         <EditText
-            android:id="@+id/idade_et"
+            android:id="@+id/data_nascimento_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Idade"
-            android:inputType="number"
+            android:hint="Data Nascimento (AAAA-MM-DD)"
+            android:inputType="date"
             app:layout_constraintTop_toBottomOf="@id/nome_et"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail"
-            app:layout_constraintTop_toBottomOf="@id/idade_et"
+            app:layout_constraintTop_toBottomOf="@id/data_nascimento_et"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" />

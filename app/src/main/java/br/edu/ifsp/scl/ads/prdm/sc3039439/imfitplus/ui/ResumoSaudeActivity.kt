@@ -23,6 +23,7 @@ class ResumoSaudeActivity : AppCompatActivity() {
         val gasto = intent.getDoubleExtra("gasto", 0.0)
         val tmb = intent.getDoubleExtra("tmb", 0.0)
         val categoria = intent.getStringExtra("categoriaImc")
+        val dataNascimento = intent.getStringExtra("dataNascimento")
 
         if (dados != null) {
             arsb.nomeResumoTv.text = "Nome: ${dados.nome}"
@@ -37,6 +38,25 @@ class ResumoSaudeActivity : AppCompatActivity() {
 
             arsb.recomendacaoAguaResumoTv.text = String.format("Recomendação de Água: %.1f litros", recomendacaoAgua)
 
+            val idade = dados.idade ?: 0
+            val frequenciaMax = 220 - idade
+
+            val zonaLivre = frequenciaMax * 0.60
+            val zonaQueima = frequenciaMax * 0.70
+            val zonaAerobica = frequenciaMax * 0.80
+
+            val frequenciaAtual = 130
+
+            val zonaTreino = when {
+                frequenciaAtual < zonaLivre -> "Zona Livre"
+                frequenciaAtual < zonaQueima -> "Zona de Queima de Gordura"
+                frequenciaAtual < zonaAerobica -> "Zona Aeróbica"
+                else -> "Zona Anaeróbica"
+            }
+
+            arsb.frequenciaTv.text = String.format("Frequência Cardíaca Máxima: %d bpm", frequenciaMax)
+            arsb.zonaTreinoTv.text = String.format("Zona de Treino: %s", zonaTreino)
+
             arsb.historicoBt.setOnClickListener {
                 if (dados == null) return@setOnClickListener
 
@@ -46,8 +66,10 @@ class ResumoSaudeActivity : AppCompatActivity() {
                 dados.recomendacaoAgua = recomendacaoAgua
                 dados.categoriaImc = categoria
                 dados.tmb = tmb
+                dados.dataNascimento = dataNascimento.toString()
 
                 val controller = br.edu.ifsp.scl.ads.prdm.sc3039439.imfitplus.controller.UsuarioController(this)
+                // Está quebrando ao ir para a tela de Histórico e inserir usuário. Acredito que por conta da dataNascimento
                 val insertedId = controller.inserirUsuario(dados)
 
                 android.util.Log.d("ResumoSaudeActivity", "Usuário inserido com id: $insertedId")
